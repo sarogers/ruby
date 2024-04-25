@@ -77,7 +77,7 @@ Style/BlockDelimiters:
     # This looks at the usage of a block's method to determine its type (e.g. is
     # the result of a `map` assigned to a variable or passed to another
     # method) but exceptions are permitted in the `ProceduralMethods`,
-    # `FunctionalMethods` and `IgnoredMethods` sections below.
+    # `FunctionalMethods` sections below.
     - semantic
     # The `braces_for_chaining` style enforces braces around single line blocks
     # and do..end around multi-line blocks, except for multi-line blocks whose
@@ -116,23 +116,6 @@ Style/BlockDelimiters:
     - let!
     - subject
     - watch
-  IgnoredMethods:
-    # Methods that can be either procedural or functional and cannot be
-    # categorised from their usage alone, e.g.
-    #
-    #   foo = lambda do |x|
-    #     puts "Hello, #{x}"
-    #   end
-    #
-    #   foo = lambda do |x|
-    #     x * 100
-    #   end
-    #
-    # Here, it is impossible to tell from the return value of `lambda` whether
-    # the inner block's return value is significant.
-    - lambda
-    - proc
-    - it
 
 Style/CaseEquality:
   Description: Avoid explicit use of the case equality operator(===).
@@ -889,8 +872,6 @@ Style/SymbolLiteral:
 Style/SymbolProc:
   Description: Use symbols as procs instead of blocks when possible.
   Enabled: false
-  IgnoredMethods:
-  - respond_to
 
 Style/TernaryParentheses:
   Enabled: false
